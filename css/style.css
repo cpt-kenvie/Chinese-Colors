@@ -1,0 +1,620 @@
+@charset "utf-8";
+
+/* @-webkit-keyframes 'color-rotate' {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotateX(90deg) rotateY(180deg);
+  }
+
+  50% {
+    -webkit-transform: rotateX(180deg) rotateY(360deg);
+  }
+
+  75% {
+    -webkit-transform: rotateX(270deg) rotateY(540deg);
+  }
+
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(720deg);
+  }
+} */
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+html,
+body,
+div,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+#wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/texture.png);
+  transition: background-color 2s ease-in;
+  background-color: #ddd;
+}
+
+#container {
+  position: relative;
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#colors {
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  left: -23px;
+  top: 0;
+  margin-top: 0;
+  transform-style: preserve-3d;
+  /*-webkit-animation: color-rotate 10s infinite linear;*/
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#colors li {
+  cursor: pointer;
+  position: absolute;
+  /*display: inline-block;*/
+  margin-top: 40px;
+  margin-right: 20px;
+  width: 50px;
+  /* height: 40px; */
+  background-repeat: no-repeat;
+  list-style: none;
+  /* opacity: 0.5; */
+}
+
+#colors li a {
+  opacity: 0.8;
+  display: block;
+  overflow: hidden;
+  width: 50px;
+  height: 278px;
+  color: #fff;
+  transition: background-color 0.15s linear;
+  padding-left: 1.8em;
+  text-decoration: none;
+}
+
+#colors li a .name {
+  /* opacity: 0.9; */
+  font-family: "Microsoft YaHei", "微软雅黑", Helvetica;
+  padding-top: 1em;
+  display: block;
+  width: 1em;
+}
+
+#colors li a .pinyin,
+#colors li a .rgb {
+  position: absolute;
+  top: 148px;
+  display: block;
+  width: 1em;
+  font-family: arial;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  text-transform: uppercase;
+}
+
+#colors li a .pinyin {
+  font-size: 0.8em;
+}
+
+#colors li a .rgb {
+  right: 35px;
+  font-size: 11px;
+  font-family: Helvetica;
+}
+
+#colors li a:hover {
+  opacity: 0.3;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, opacity;
+}
+
+#colors li div {
+  background: url(../images/col_bg.png) no-repeat;
+}
+
+#colors li div canvas {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#logo {
+  position: absolute;
+  text-indent: -9999px;
+  left: 909px;
+}
+
+#logo h1 {
+  background: url(../images/logo.png) no-repeat;
+  height: 520px;
+  width: 60px;
+  position: fixed;
+}
+
+#data {
+  position: absolute;
+  left: 504px;
+  top: 40px;
+  height: 507px;
+  width: 410px;
+}
+
+#data h2 {
+  position: fixed;
+  color: #fff;
+  margin: 0;
+}
+
+#data h2 #name {
+  font-family: "lixukexingshu1b969ad7dc1c3e5";
+  font-weight: normal;
+  font-size: 100px;
+  color: #fff;
+
+  margin: 0 auto;
+  display: block;
+  width: 110px;
+  text-align: center;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#data h2 #pinyin {
+  font-size: 16px;
+  display: block;
+  width: 440px;
+  padding-top: 10px;
+  text-align: center;
+  font-family: Georgia;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+#data #color-value {
+  position: fixed;
+  z-index: 500;
+  width: 100px;
+  margin-left: 0;
+  background: url(../images/bdr_w_50.png) left top no-repeat;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+}
+
+#CMYKcolor {
+  width: 50px;
+}
+
+#CMYKcolor dt {
+  width: 10px;
+  height: 9px;
+  margin: 10px 0 6px 0;
+  color: #fff;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#CMYKcolor dt .c {
+  background-position: 0 0;
+}
+
+#CMYKcolor dt .m {
+  background-position: -10px 0;
+}
+
+#CMYKcolor dt .y {
+  background-position: -20px 0;
+}
+
+#CMYKcolor dt .k {
+  background-position: -30px 0;
+}
+
+#CMYKcolor dd {
+  background: url(../images/bdr_w_50.png) left bottom no-repeat;
+  font-family: "myriad-pro-1", "myriad-pro-2", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  padding: 0 0 11px 0;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#CMYKcolor dd.c {
+  color: #0093d3;
+}
+
+#CMYKcolor dd.c .r .line {
+  -webkit-transform: rotate(0deg);
+  background-position: 0 0;
+}
+
+#CMYKcolor dd.c .l .line {
+  -webkit-transform: rotate(180deg);
+  background-position: 0 0;
+}
+
+#CMYKcolor dd.m {
+  color: #cc006b;
+}
+
+#CMYKcolor dd.m .r .line {
+  -webkit-transform: rotate(0deg);
+  background-position: 0 -50px;
+}
+
+#CMYKcolor dd.m .l .line {
+  -webkit-transform: rotate(180deg);
+  background-position: 0 -50px;
+}
+
+#CMYKcolor dd.y {
+  color: #fff10c;
+}
+
+#CMYKcolor dd.y .r .line {
+  -webkit-transform: rotate(0deg);
+  background-position: 0 -100px;
+}
+
+#CMYKcolor dd.y .l .line {
+  -webkit-transform: rotate(180deg);
+  background-position: 0 -100px;
+}
+
+#CMYKcolor dd.k {
+  color: #333;
+}
+
+#CMYKcolor dd.k .r .line {
+  -webkit-transform: rotate(0deg);
+  background-position: 0 -150px;
+}
+
+#CMYKcolor dd.k .l .line {
+  -webkit-transform: rotate(180deg);
+  background-position: 0 -150px;
+}
+
+#CMYKcolor dd .cont {
+  display: block;
+  height: 50px;
+  position: relative;
+  width: 50px;
+  z-index: 500;
+}
+
+#CMYKcolor dd .circle {
+  background: url(../images/circle.png) no-repeat;
+  display: block;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+#CMYKcolor dd .r .line,
+#CMYKcolor dd .l .line {
+  display: block;
+  height: 50px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 50px;
+  background: url(../images/colorBox.png) no-repeat;
+}
+
+#CMYKcolor dd .r,
+#CMYKcolor dd .l {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+#CMYKcolor dd .r {
+  -webkit-mask-image: url(../images/circle_r.png);
+}
+
+#CMYKcolor dd .r .line {
+  transition: transform 0.5s linear;
+}
+
+#CMYKcolor dd .l {
+  -webkit-mask-image: url(../images/circle_l.png);
+}
+
+#CMYKcolor dd .l .line {
+  -webkit-transition: -webkit-transform 0.5s linear;
+}
+
+#CMYKcolor dd.c ::selection {
+  background: #0093d3;
+}
+
+#CMYKcolor dd.m ::selection {
+  background: #cc006b;
+}
+
+#CMYKcolor dd.y ::selection {
+  background: #fff10c;
+}
+
+#CMYKcolor dd.k ::selection {
+  background: #000000;
+}
+
+#RGBcolor {
+  position: relative;
+  width: 236px;
+}
+
+#RGBcolor dt {
+  height: 9px;
+  margin: 10px 0px 6px 0px;
+  width: 10px;
+  color: #fff;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#RGBcolor dt .r {
+  background-position: -40px 0;
+}
+
+#RGBcolor dt .g {
+  background-position: -50px 0;
+}
+
+#RGBcolor dt .b {
+  background-position: -60px 0;
+}
+
+#RGBcolor dd {
+  background: url(../images/bdr_w_50.png) left bottom no-repeat;
+  color: #fff;
+  font-family: "myriad-pro-1", "myriad-pro-2", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  height: 24px;
+  line-height: 100%;
+  overflow: hidden;
+  padding: 0 1px 11px 1px;
+  position: relative;
+  text-align: right;
+  width: 50px;
+  z-index: 500;
+}
+
+#RGBcolor #RGBvalue {
+  height: 61px;
+  left: 60px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 10px 0 19px;
+  position: absolute;
+  top: 80px;
+  -webkit-transition: opacity 0.2s linear;
+  width: 147px;
+}
+
+#RGBcolor #RGBvalue input {
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 21px;
+  width: 120px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#RGBcolor dd.r ::selection {
+  background: #f00;
+}
+
+#RGBcolor dd.g ::selection {
+  background: #0f0;
+}
+
+#RGBcolor dd.b ::selection {
+  background: #00f;
+}
+
+#colorContainer {
+  webkit-perspective: 500;
+  webkit-transition: -webkit-perspective 3s ease-in-out;
+  width: 100%;
+}
+
+#share {
+  margin-top: 15px;
+}
+
+#share #weibo,
+#share #qqt {
+  float: left;
+}
+
+#share #qqt {
+  margin-left: 10px;
+}
+
+footer {
+  position: absolute;
+  left: 595px;
+  top: 680px;
+  color: #fff;
+  font-size: 10px;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer p {
+  position: fixed;
+}
+
+.odometer.odometer-auto-theme,
+.odometer.odometer-theme-default {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+}
+
+.odometer.odometer-auto-theme .odometer-digit,
+.odometer.odometer-theme-default .odometer-digit {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,
+.odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  visibility: hidden;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,
+.odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+  text-align: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,
+.odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+  display: block;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,
+.odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-value,
+.odometer.odometer-theme-default .odometer-digit .odometer-value {
+  display: block;
+  -webkit-transform: translateZ(0);
+}
+
+.odometer.odometer-auto-theme
+  .odometer-digit
+  .odometer-value.odometer-last-value,
+.odometer.odometer-theme-default
+  .odometer-digit
+  .odometer-value.odometer-last-value {
+  position: absolute;
+}
+
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+}
+
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating
+  .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-up.odometer-animating
+  .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-down
+  .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating
+  .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-down.odometer-animating
+  .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.odometer.odometer-auto-theme,
+.odometer.odometer-theme-default {
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 1.1em;
+}
+
+.odometer.odometer-auto-theme .odometer-value,
+.odometer.odometer-theme-default .odometer-value {
+  text-align: center;
+}
