@@ -1,27 +1,5 @@
 @charset "utf-8";
 
-/* @-webkit-keyframes 'color-rotate' {
-  0% {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-  }
-
-  25% {
-    -webkit-transform: rotateX(90deg) rotateY(180deg);
-  }
-
-  50% {
-    -webkit-transform: rotateX(180deg) rotateY(360deg);
-  }
-
-  75% {
-    -webkit-transform: rotateX(270deg) rotateY(540deg);
-  }
-
-  100% {
-    -webkit-transform: rotateX(360deg) rotateY(720deg);
-  }
-} */
-
 @-webkit-keyframes spinner {
   from {
     -webkit-transform: rotateY(0deg);
